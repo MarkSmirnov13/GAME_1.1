@@ -18,10 +18,12 @@ public class Ground extends JPanel implements Observer {
     Human human = null;
     private Image Raketa;
     private Image nlo;
+    private int w;
+    private int h;
 
     private void loadImage() {
 
-        ImageIcon ii = new ImageIcon("C:\\Users\\user\\Desktop\\nlo.png");
+        ImageIcon ii = new ImageIcon("C:\\Users\\user\\Desktop\\3.jpg");
         Raketa = ii.getImage();
     }
 
@@ -34,6 +36,8 @@ public class Ground extends JPanel implements Observer {
     }
     Ground(int w, int h){
         human = new Human(100, 100, 40); //создаем человека
+        this.h = h;
+        this.w = w;
         setPreferredSize(new Dimension(w,h)); //размер поля
         setBackground(Color.black);
         loadImage();
@@ -48,7 +52,7 @@ public class Ground extends JPanel implements Observer {
         addKeyListener(mk);
     }
 
-        @Override
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         drawBG(g);
@@ -56,9 +60,7 @@ public class Ground extends JPanel implements Observer {
     }
 
     private void drawBG(Graphics g){
-        //картинку рисовать тут
-        //g.fillOval(human.getX(), human.getY(), human.getSize(), human.getSize());
-        g.drawImage(nlo, 0, 0, this);
+        g.drawImage(nlo, 0, 0, w, h, this);
         Toolkit.getDefaultToolkit().sync();
     }
 

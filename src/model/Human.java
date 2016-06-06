@@ -13,7 +13,7 @@ public class Human implements Observer {
     int y;
     int size;
 
-    int acc = 10;
+    int acc = 8;
 
     public Human(int x, int y, int size){
         this.x = x;
